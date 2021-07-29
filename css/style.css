@@ -1,0 +1,410 @@
+* {
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  margin: 0;
+}
+
+body {
+  font-family: 'Rubik', sans-serif;
+}
+
+#nav-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 90px;
+  background-color: #262c2e;
+  z-index: 999;
+}
+
+#nav-top .logo {
+  padding-top: 5px;
+  padding-left: 30px;
+  float: left;
+}
+
+#nav-top .logo img {
+  height: 80px;
+  width: auto;
+}
+
+#nav-top #nav-top-trigger {
+  display: none;
+}
+
+#nav-top #nav-top-trigger:checked ~ .nav-top-trigger em {
+  background-color: transparent;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+#nav-top #nav-top-trigger:checked ~ .nav-top-trigger em::before {
+  -webkit-transform: rotate(-135deg);
+          transform: rotate(-135deg);
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+#nav-top #nav-top-trigger:checked ~ .nav-top-trigger em::after {
+  -webkit-transform: rotate(135deg);
+          transform: rotate(135deg);
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+#nav-top #nav-top-trigger:checked ~ .nav-menu {
+  opacity: 1;
+  pointer-events: auto;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+
+#nav-top .nav-top-trigger {
+  float: right;
+  height: 90px;
+  padding-right: 30px;
+}
+
+#nav-top .nav-top-trigger em {
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: white;
+  margin: 43px 10px;
+  position: relative;
+  -webkit-transition: background-color .3s;
+  transition: background-color .3s;
+}
+
+#nav-top .nav-top-trigger em::before, #nav-top .nav-top-trigger em::after {
+  content: "";
+  display: block;
+  width: 28px;
+  height: 2px;
+  background-color: white;
+  position: absolute;
+  left: 0;
+  -webkit-transition: -webkit-transform .5s;
+  transition: -webkit-transform .5s;
+  transition: transform .5s;
+  transition: transform .5s, -webkit-transform .5s;
+}
+
+#nav-top .nav-top-trigger em::before {
+  -webkit-transform: translateY(8px);
+          transform: translateY(8px);
+}
+
+#nav-top .nav-top-trigger em::after {
+  -webkit-transform: translateY(-8px);
+          transform: translateY(-8px);
+}
+
+#nav-top .nav-menu {
+  position: absolute;
+  top: 90px;
+  left: 0;
+  right: 0;
+  background-color: #a32227;
+  margin: 0;
+  max-height: calc(100vh - 90px);
+  overflow-y: auto;
+  opacity: 0;
+  pointer-events: none;
+  -webkit-transition: opacity .3s;
+  transition: opacity .3s;
+}
+
+#nav-top .nav-menu > li {
+  border-bottom: 1px solid #fffde7;
+  margin-bottom: 0;
+}
+
+#nav-top .nav-menu > li:last-child {
+  border-bottom: none;
+}
+
+#nav-top .nav-menu > li a {
+  display: block;
+  color: #fffde7;
+  text-transform: uppercase;
+  font-size: 1.2em;
+  text-align: center;
+  padding: 10px 0;
+  text-decoration: none;
+}
+
+#nav-top .nav-menu > li a:hover {
+  background-color: #fffde7;
+  color: #262c2e;
+}
+
+#nav-top .nav-menu {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  font-size: 1.2rem;
+}
+
+header {
+  top: 90px;
+  height: 900px;
+  background-image: url(../img/32-Kombuese_Web-Startpage.jpg);
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-position: 50%;
+  color: #262c2e;
+}
+
+header .heading {
+  padding-top: 200px;
+  font-size: 3em;
+  text-shadow: 0 2px 3px #262c2e;
+  text-align: center;
+}
+
+.service {
+  padding-top: 100px;
+  padding-bottom: 100px;
+}
+
+.header_service {
+  text-align: center;
+}
+
+.row {
+  padding-top: 20px;
+}
+
+.service_circle {
+  margin: 10px;
+  position: relative;
+}
+
+.service_circle .service_image {
+  width: 100%;
+  border-radius: 50%;
+  border: 2px solid #a32227;
+  display: block;
+  height: auto;
+}
+
+.service_circle .service_description {
+  position: absolute;
+  top: 0%;
+  bottom: 0;
+  left: 0%;
+  right: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(255, 253, 231, 0.5);
+  border-radius: 50%;
+  opacity: 0;
+  -webkit-transition: .5 ease;
+  transition: .5 ease;
+}
+
+.service_circle:hover .service_description {
+  opacity: 1;
+}
+
+.service_circle .service_name {
+  color: #262c2e;
+  font-size: 35px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+.service_circle .aoverlay {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.divider {
+  height: 1000px;
+  background-image: url(../img/kombuese_logo_flagge-divider_400width.png);
+  background-size: cover;
+  background-position: 0 0;
+  background-attachment: fixed;
+  margin-bottom: 100px;
+}
+
+.oefnungszeiten {
+  padding-top: 50px;
+  padding-bottom: 100px;
+}
+
+.oefnungszeiten .header_oefnungszeiten {
+  text-align: center;
+}
+
+.oefnungszeiten .oefnungszeiten_list {
+  list-style-type: none;
+  text-align: center;
+}
+
+.footer_wave {
+  position: absolute;
+  bottom: 150px;
+  right: 0;
+  z-index: -1;
+}
+
+.footer_info {
+  padding: 0 5%;
+  position: relative;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  text-align: center;
+  background-color: #262c2e;
+}
+
+.footer_info .adresse {
+  color: white;
+  padding-bottom: 10px;
+}
+
+.footer_info .adresse p {
+  margin-bottom: 0;
+}
+
+.footer_info .social_menu {
+  padding-bottom: 10px;
+}
+
+.footer_info .social_menu i {
+  font-size: 1.5em;
+  padding: 10px;
+  color: white;
+  -webkit-transition: -webkit-transform 200ms linear;
+  transition: -webkit-transform 200ms linear;
+  transition: transform 200ms linear;
+  transition: transform 200ms linear, -webkit-transform 200ms linear;
+}
+
+.footer_info .social_menu i:hover {
+  color: #a32227;
+  font-size: 2em;
+}
+
+.footer_info .imprint {
+  padding-bottom: 10px;
+}
+
+.footer_info .imprint a {
+  text-decoration: none;
+  color: white;
+}
+
+.footer_info .imprint a:hover {
+  color: #a32227;
+}
+
+@media screen and (min-width: 750px) {
+  .divider {
+    background-image: url(../img/kombuese_logo_flagge-divider_700width.png);
+  }
+  .footer_info {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+  }
+  .footer_info .footer_wave {
+    bottom: 30px;
+  }
+  .social_menu {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    pointer-events: none;
+  }
+  .social_menu a {
+    pointer-events: auto;
+  }
+}
+
+@media only screen and (min-width: 992px) {
+  #nav-top .nav-top-trigger {
+    display: none;
+  }
+  #nav-top .logo {
+    padding-left: 50px;
+  }
+  #nav-top .nav-menu {
+    position: static;
+    float: right;
+    display: block;
+    opacity: 1;
+    line-height: 90px;
+    padding-right: 50px;
+    background-color: transparent;
+    overflow: visible;
+    pointer-events: auto;
+  }
+  #nav-top .nav-menu > li {
+    float: left;
+    border-bottom: none;
+    height: 90px;
+    position: relative;
+    padding-left: 50px;
+    text-align: center;
+  }
+  #nav-top .nav-menu > li a {
+    padding: 0;
+    text-transform: none;
+  }
+  #nav-top .nav-menu li a {
+    padding: 0 20px;
+    margin: 10px 0;
+    font-size: 1.5em;
+    color: white;
+  }
+  #nav-top .nav-menu li a:hover {
+    display: block;
+    border-radius: 5%;
+    background-color: #a32227;
+    color: #fffde7;
+  }
+  .divider {
+    background-image: url(../img/kombuese_logo_flagge-divider.png);
+    background-position: 50% 30%;
+  }
+  .oefnungszeiten {
+    padding-bottom: 150px;
+  }
+}
+
+@media only screen and (min-width: 1600px) {
+  .oefnungszeiten {
+    padding-bottom: 250px;
+  }
+}
+/*# sourceMappingURL=style.css.map */

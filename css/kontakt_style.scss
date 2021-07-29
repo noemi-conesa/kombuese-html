@@ -1,0 +1,383 @@
+$primarycolor: rgb(38, 44, 46);
+$secondarycolor: rgb(163,34,39);
+$accentcolor: rgb(255, 253, 231);
+$black: rgb(0, 0, 0);
+$white: rgb(255, 255, 255);
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+}
+
+body {
+    font-family: 'Rubik', sans-serif;
+}
+
+// Mobile Styling
+
+#nav-top {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 90px;
+    background-color: $primarycolor;
+    z-index: 999;
+    .logo {
+        padding-top: 5px;
+        padding-left: 30px;
+        float: left;
+        img {
+            height: 80px;
+            width: auto;
+        }
+    }
+    #nav-top-trigger {
+        display: none;
+        &:checked {
+            ~ .nav-top-trigger {
+                em {
+                    background-color: transparent;
+                    transition: background-color .3s;
+                    &::before {
+                        transform: rotate(-135deg);
+                        transition: transform .5s;
+                    }
+                    &::after {
+                        transform: rotate(135deg);
+                        transition: transform .5s;
+                    }
+                }
+            }
+            ~ .nav-menu {
+                opacity: 1;
+                pointer-events: auto;
+                transition: opacity .3s;
+            }
+        }   
+    }
+    .nav-top-trigger {
+        float: right;
+        height: 90px;
+        padding-right: 30px;
+        em {
+            display: block;
+            width: 28px;
+            height: 2px;
+            background-color: $white;
+            margin: 43px 10px;
+            position: relative;
+            transition: background-color .3s;
+            &::before, &::after {
+                content: "";
+                display: block;
+                width: 28px;
+                height: 2px;
+                background-color: $white;
+                position: absolute;
+                left: 0;
+                transition: transform .5s;
+            }
+            &::before {
+                transform: translateY(8px);
+            }
+            &::after {
+                transform: translateY(-8px);
+            }
+        }
+    }
+    .nav-menu {
+        position: absolute;
+        top: 90px;
+        left: 0;
+        right: 0;
+        background-color: $secondarycolor;
+        margin: 0;
+        max-height: calc(100vh - 90px);
+        overflow-y: auto;
+        opacity: 0;
+        pointer-events: none;
+        transition: opacity .3s;
+        > li {
+            border-bottom: 1px solid $accentcolor;
+            margin-bottom: 0;
+            &:last-child {
+                border-bottom: none;
+            }
+            a {
+                display: block;
+                color: $accentcolor;
+                text-transform: uppercase;
+                font-size: 1.2em;
+                text-align: center;
+                padding: 10px 0;
+                text-decoration: none;
+                &:hover {
+                    background-color: $accentcolor;
+                    color: $primarycolor;
+                }
+            }
+        }
+    }
+    .nav-menu {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        font-size: 1.2rem;
+    }
+}
+
+// Header
+
+header {
+    top: 90px;
+    height: 500px;
+    background-image: url(../img/30-Kombuese_Web-Kontakt.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: 50%;
+    color: $primarycolor;
+    .heading {
+        padding-top: 200px;
+        font-size: 3em;
+        // font-weight: 300;
+        text-shadow: 0 2px 3px $primarycolor;
+        text-align: center;
+    }
+}
+
+// Main
+
+// Kontakt Form
+
+.kontakt {
+    padding-top: 70px;
+    padding-bottom: 20px;
+    // background-color: $secondarycolor;
+}
+
+.header_kontakt {
+    font-size: 1.5em;
+    text-align: center;
+}
+
+.kontakt_form {
+    padding: 30px;
+    border-radius: 8px;
+    border: 6px solid $primarycolor;
+    background-color: $secondarycolor;
+}
+
+.standardform {
+    width: 100%;
+}
+
+.txtarea {
+    height: 150px;
+}
+
+.datenschutzcheck {
+    float: left;
+    height: 20px;
+    width: 20px;
+}
+
+.checkbeschriftung {
+    float: left;
+    margin-left: 38px;
+    margin-top: -38px;
+}
+
+.btn {
+    text-align: center;
+}
+
+input[type=submit] {
+    background-color: $accentcolor;
+    color: $primarycolor;
+    height: 50px;
+    width: 200px;
+    margin-top: 20px;
+    margin-bottom: 0;
+    &:hover {
+        color: rgb(206, 137, 139);
+        background-color: $primarycolor;
+        border: rgb(38, 44, 46);
+    }
+}
+
+input[type=text]:focus, textarea:focus, select:focus {
+    background-color: rgb(206, 137, 139);
+    border: 1px solid $primarycolor;
+}
+
+::placeholder {
+    font-weight: lighter;
+}
+
+::selection a:hover {
+    background-color: $primarycolor;
+}
+
+
+
+
+// Öffnungszeiten Bereich
+
+.oefnungszeiten {
+    padding-top: 50px;
+    padding-bottom: 100px;
+    .header_oefnungszeiten {
+        font-size: 1.5em;
+        text-align: center;
+    }
+    .oefnungszeiten_list {
+        list-style-type: none;
+        text-align: center;
+    }    
+}
+
+
+// Footer
+
+.footer_wave {
+    position: absolute;
+    bottom: 150px;
+    right: 0; 
+    z-index: -1; 
+}
+
+.footer_info {
+    padding: 0 5%;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: $primarycolor;
+    .adresse {
+        color: $white;
+        padding-bottom: 10px;
+        p {
+        margin-bottom: 0;
+        }
+    }
+    .social_menu {
+        padding-bottom: 10px;
+        i {
+            font-size: 1.5em;
+            padding: 10px;
+            color: $white;
+            transition: transform 200ms linear;
+        &:hover {
+            color: $secondarycolor;
+            font-size: 2em; 
+            }
+        }
+    }
+    .imprint {
+        padding-bottom: 10px;
+        a {
+            text-decoration: none;
+            color: $white;
+            &:hover {
+                color: $secondarycolor;
+            }
+        }
+    }
+}
+
+
+// Nav Breakpoint
+
+
+@media screen and (min-width: 750px) {
+
+    .footer_info {
+        flex-direction: row;
+        justify-content: space-between;
+        .footer_wave {
+            bottom: 30px;
+        }
+    }
+
+    // regles per centrar el menú de social media al mig de la pàgina en la versió desktop: 
+    .social_menu {
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        top: 0;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        pointer-events: none; // serveix per a que l'àrea que hem extès per centrar-ho no es sobreposi a la part d'impressum i aquest es pugui clicar i tingui hover també
+        a {
+            pointer-events: auto;
+        }
+    }
+}
+
+@media only screen and (min-width: 992px) {
+    #nav-top {
+        .nav-top-trigger {
+            display: none;
+        }
+        .logo {
+            padding-left: 50px;
+        }
+        .nav-menu {
+            position: static;
+            float: right;
+            display: block;
+            opacity: 1;
+            line-height: 90px;
+            padding-right: 50px;
+            background-color: transparent;
+            overflow: visible;
+            pointer-events: auto;
+            > li {
+                float: left;
+                border-bottom: none;
+                height: 90px;
+                position: relative;
+                padding-left: 50px;
+                text-align: center;
+                a {
+                    padding: 0;
+                    text-transform: none;
+                }
+            }
+            li {
+                a { 
+                    padding: 0 20px; //Per a que en el hover hi hagi una mica d'espai pels costats
+                    margin: 10px 0; //Treure aquest margin si vull que el menú quedi centrat i que el hover quedi dins el menú i no se surti
+                    font-size: 1.5em;
+                    color: $white;
+                    &:hover {
+                        display: block;
+                        border-radius: 5%;
+                        background-color: $secondarycolor;
+                        color: $accentcolor;
+                    }
+                }           
+            }
+            li.current-menu-item {
+                a {
+                    border-radius: 5%;
+                    background-color: $secondarycolor;
+                    color: $accentcolor;
+                }             
+            }
+        }
+    }
+
+    .oefnungszeiten {
+        padding-bottom: 150px;
+    }
+}
+
+@media only screen and (min-width: 1600px) {
+    .oefnungszeiten {
+        padding-bottom: 250px;
+    }
+}
